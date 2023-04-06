@@ -3,7 +3,7 @@ import List from "./components/List";
 
 import { useState } from "react";
 
-const stories = [
+const initialStories = [
   {
     title: 'React',
     url: 'https://reactjs.org/',
@@ -24,6 +24,7 @@ const stories = [
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('React');
+  const [stories, setStories] = useState(initialStories);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -32,6 +33,14 @@ const App = () => {
   const searchedStories = stories.filter((story) =>
     story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleRemoveStory = (item) => {
+    const newStories = stories.filter(
+      (story) => item.objectID !== story.objectID
+    );
+
+    setStories(newStories);
+  };
 
   return (
     <div className="App">
@@ -48,7 +57,7 @@ const App = () => {
 
       <hr />
 
-      <List list={searchedStories} />
+      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
     </div>
   );
   

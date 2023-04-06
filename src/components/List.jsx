@@ -5,15 +5,19 @@ function getWelcome(title) {
   return `${welcome} ${title}`;
 }
 
-const List = ({ list }) => (
+const List = ({ list, onRemoveItem }) => (
   <ul>
     {list.map(( item ) => (
-      <Item key={item.objectID} item={item} />
+      <Item 
+        key={item.objectID}
+        item={item}
+        onRemoveItem={onRemoveItem}
+      />
     ))}
   </ul>
 );
 
-const Item = ({ item }) => (
+const Item = ({ item, onRemoveItem }) => (
   <li>
     <span>
       <a href={item.url}>{getWelcome(item.title)}</a>
@@ -21,6 +25,7 @@ const Item = ({ item }) => (
     <span><b>Author:</b> {item.author}</span>
     <span><b>Comments:</b> {item.num_comments}</span>
     <span><b>Points:</b> {item.points}</span>
+    <button type="button" onClick={() => onRemoveItem(item)}>Delete</button>
   </li>
 );
 
