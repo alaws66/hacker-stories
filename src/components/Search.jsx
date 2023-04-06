@@ -1,7 +1,12 @@
-const Search = ({ onSearch }) => (
+const Search = ({ search, onSearch }) => (
   <>
     <label htmlFor="search">Search: </label>
-    <input type="text" id="search" onChange={onSearch} />
+    <input 
+      type="text"
+      id="search"
+      value={search}
+      onChange={onSearch} 
+    />
   </>
 );
 
