@@ -1,4 +1,4 @@
-import Search from "./components/Search";
+import InputWithLabel from "./components/InputWithLabel";
 import List from "./components/List";
 
 import { useState } from "react";
@@ -37,7 +37,14 @@ const App = () => {
     <div className="App">
       <h1>My Hacker Stories</h1>
 
-      <Search search={searchTerm} onSearch={handleSearch} />
+      <InputWithLabel
+        id="search"
+        label="Search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+      >
+        <strong>Search: </strong>
+      </InputWithLabel>
 
       <hr />
 
