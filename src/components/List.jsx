@@ -5,23 +5,19 @@ function getWelcome(title) {
   return `${welcome} ${title}`;
 }
 
-const List = ({ list }) => {
-  return ( 
-    <ul>
-        {list.map((item) => {
-          return (
-            <li key={item.objectID}>
-              <span>
-                <a href={item.url}>{getWelcome(item.title)}</a>
-              </span>
-              <span><b>Author:</b> {item.author}</span>
-              <span><b>Comments:</b> {item.num_comments}</span>
-              <span><b>Points:</b> {item.points}</span>
-            </li>
-          )
-        })}
-      </ul>
-   );
-}
+const List = ({ list }) => (
+  <ul>
+    {list.map((item) => (
+      <li key={item.objectID}>
+        <span>
+          <a href={item.url}>{getWelcome(item.title)}</a>
+        </span>
+        <span><b>Author:</b> {item.author}</span>
+        <span><b>Comments:</b> {item.num_comments}</span>
+        <span><b>Points:</b> {item.points}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 export default List

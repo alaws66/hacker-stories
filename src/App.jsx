@@ -20,18 +20,16 @@ const list = [
   },
 ];
 
-const App = () => {
-  return (
-    <div className="App">
-      <h1>My Hacker Stories</h1>
+const App = () => (
+  <div className="App">
+    <h1>My Hacker Stories</h1>
 
-      <Search />
+    <Search />
 
-      <hr />
+    <hr />
 
-      <List list={list} />
-    </div>
-  );
-}
+    <List list={list} />
+  </div>
+);
 
 export default App
