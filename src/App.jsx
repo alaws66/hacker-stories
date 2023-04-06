@@ -20,11 +20,15 @@ const list = [
   },
 ];
 
+const handleSearch = (event) => {
+  console.log(event.target.value);
+}
+
 const App = () => (
   <div className="App">
     <h1>My Hacker Stories</h1>
 
-    <Search />
+    <Search onSearch={handleSearch} />
 
     <hr />
 
