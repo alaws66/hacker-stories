@@ -1,3 +1,4 @@
+import Search from "./components/Search";
 import List from "./components/List";
 
 const list = [
@@ -24,8 +25,7 @@ const App = () => {
     <div className="App">
       <h1>My Hacker Stories</h1>
 
-      <label htmlFor="search">Search: </label>
-      <input type="text" id="search" />
+      <Search />
 
       <hr />
 
