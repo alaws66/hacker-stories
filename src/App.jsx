@@ -1,7 +1,9 @@
 import Search from "./components/Search";
 import List from "./components/List";
 
-const list = [
+import { useState } from "react";
+
+const stories = [
   {
     title: 'React',
     url: 'https://reactjs.org/',
@@ -20,20 +22,29 @@ const list = [
   },
 ];
 
-const handleSearch = (event) => {
-  console.log(event.target.value);
-}
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-const App = () => (
-  <div className="App">
-    <h1>My Hacker Stories</h1>
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-    <Search onSearch={handleSearch} />
+  const searchedStories = stories.filter((story) =>
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-    <hr />
+  return (
+    <div className="App">
+      <h1>My Hacker Stories</h1>
 
-    <List list={list} />
-  </div>
-);
+      <Search onSearch={handleSearch} />
+
+      <hr />
+
+      <List list={searchedStories} />
+    </div>
+  );
+  
+};
 
 export default App
